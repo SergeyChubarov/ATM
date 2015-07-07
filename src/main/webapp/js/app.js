@@ -42,14 +42,16 @@ $(document).on('click', '.submit-card', function (event) {
 });
 
 $(document).on('click', '.submit-pin', function (event) {
-    var cardNumber = $('#pin-number').val();
+    var cardNumber = $('#card-number').val();
+    var pinNumber = $('#pin-number').val();
     $.ajax({
         type: "get",
-        url: "/card/" + cardNumber + "/isBlocked",
+        url: "/card/" + cardNumber + "/pin/" + pinNumber + "/checkPinNumber",
         success: function (response) {
+
             console.log("asdasd " + response);
-            $('#card-number-block').hide();
-            $('#pin-number-block').show();
+//            $('#card-number-block').hide();
+//            $('#pin-number-block').show();
         }
     });
 });

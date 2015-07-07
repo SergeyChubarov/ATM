@@ -1,8 +1,12 @@
 package com.ATM.dao;
 
+import com.ATM.domain.Card;
+
 public interface CardDao {
 
-    Boolean isExistCardNumber(String cardNumber);
+    Card getByNumber(String cardNumber);
 
-    Boolean checkPinNumber(String cardNumber, String pinNumber);
+    void blockCardByNumber(String cardNumber);
+
+    void setPinInvalidAttemptsByNumber(String cardNumber, Integer attempts);
 }

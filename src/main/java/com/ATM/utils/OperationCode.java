@@ -1,16 +1,16 @@
 package com.ATM.utils;
 
 public enum OperationCode {
-    Balance("B"),
-    Withdraw("W");
+    Balance(1),
+    Withdraw(2);
 
-    private String operationCode;
+    private Integer operationCode;
 
-    OperationCode(String operationCode) {
+    OperationCode(Integer operationCode) {
         this.operationCode = operationCode;
     }
 
-    public String getOperationCode() {
+    public Integer getOperationCode() {
         return operationCode;
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public class Card {
     private String number;
     private String pinNumber;
-    private Integer pinNumberAttemptsCount;
+    private Integer invalidPinAttemptsCount;
     private Boolean isBlocked;
     private BigDecimal balance;
     private List<Operation> operations;
@@ -17,10 +17,10 @@ public class Card {
     public Card() {
     }
 
-    public Card(String number, String pinNumber, Integer pinNumberAttemptsCount, Boolean isBlocked, BigDecimal balance, List<Operation> operations) {
+    public Card(String number, String pinNumber, Integer invalidPinAttemptsCount, Boolean isBlocked, BigDecimal balance, List<Operation> operations) {
         this.number = number;
         this.pinNumber = pinNumber;
-        this.pinNumberAttemptsCount = pinNumberAttemptsCount;
+        this.invalidPinAttemptsCount = invalidPinAttemptsCount;
         this.isBlocked = isBlocked;
         this.balance = balance;
         this.operations = operations;
@@ -45,13 +45,13 @@ public class Card {
         this.pinNumber = pinNumber;
     }
 
-    @Column(name = "PIN_NUMBER_ATTEMPTS_COUNT")
-    public Integer getPinNumberAttemptsCount() {
-        return pinNumberAttemptsCount;
+    @Column(name = "INVALID_PIN_ATTEMPTS_COUNT")
+    public Integer getInvalidPinAttemptsCount() {
+        return invalidPinAttemptsCount;
     }
 
-    public void setPinNumberAttemptsCount(Integer pinNumberAttemptsCount) {
-        this.pinNumberAttemptsCount = pinNumberAttemptsCount;
+    public void setInvalidPinAttemptsCount(Integer invalidPinAttemptsCount) {
+        this.invalidPinAttemptsCount = invalidPinAttemptsCount;
     }
 
     @Column(name = "IS_BLOCKED")
@@ -91,7 +91,7 @@ public class Card {
         if (isBlocked != null ? !isBlocked.equals(card.isBlocked) : card.isBlocked != null) return false;
         if (number != null ? !number.equals(card.number) : card.number != null) return false;
         if (pinNumber != null ? !pinNumber.equals(card.pinNumber) : card.pinNumber != null) return false;
-        if (pinNumberAttemptsCount != null ? !pinNumberAttemptsCount.equals(card.pinNumberAttemptsCount) : card.pinNumberAttemptsCount != null)
+        if (invalidPinAttemptsCount != null ? !invalidPinAttemptsCount.equals(card.invalidPinAttemptsCount) : card.invalidPinAttemptsCount != null)
             return false;
 
         return true;
@@ -101,7 +101,7 @@ public class Card {
     public int hashCode() {
         int result = number != null ? number.hashCode() : 0;
         result = 31 * result + (pinNumber != null ? pinNumber.hashCode() : 0);
-        result = 31 * result + (pinNumberAttemptsCount != null ? pinNumberAttemptsCount.hashCode() : 0);
+        result = 31 * result + (invalidPinAttemptsCount != null ? invalidPinAttemptsCount.hashCode() : 0);
         result = 31 * result + (isBlocked != null ? isBlocked.hashCode() : 0);
         return result;
     }

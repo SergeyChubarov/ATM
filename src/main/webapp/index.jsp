@@ -12,7 +12,9 @@
     <link type="text/css" href="<spring:url value="/css/app.css"/>" rel="stylesheet"/>
 </head>
 <body>
-    <div>
+    <div class="container">
+        <h2 style="text-align: center;">ATM</h2>
+        <hr>
         <div>
             <div id="card-number-block">
                 <label for="card-number">Card number</label>
@@ -26,6 +28,7 @@
             </div>
             <button class="btn btn-default clear">Clear</button>
         </div>
+
         <div>
             <div class="numbers">
                 <button class="btn btn-default number-btn">1</button>
@@ -40,6 +43,7 @@
                 <button class="btn btn-default number-btn">0</button>
             </div>
         </div>
+
     </div>
 </body>
 </html>

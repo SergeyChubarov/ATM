@@ -10,7 +10,6 @@
     <script type="text/javascript" src="<spring:url value="/js/jquery.blockUI.js"/>"></script>
     <link type="text/css" href="<spring:url value="/css/bootstrap.css"/>" rel="stylesheet"/>
     <link type="text/css" href="<spring:url value="/css/app.css"/>" rel="stylesheet"/>
-
 </head>
 <body>
     <div>

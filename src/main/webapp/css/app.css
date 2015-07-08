@@ -1,4 +1,4 @@
-.home-content {
+.content {
     background-color: rgba(238, 238, 238, 0);
 }
 
@@ -6,7 +6,6 @@
     position: relative;
     top: 50px;
     min-width: 900px;
-    min-height: 800px;
 }
 
 #alert-container {
@@ -16,7 +15,7 @@
 
 #card-data-content {
     width: 50%;
-    margin: 100px auto 0;
+    margin: 50px auto;
 }
 
 .card-data-input {

@@ -83,7 +83,7 @@ var checkPinNumber = function () {
         success: function (response) {
             $('#pin-number').val("");
             if (response.isValidPinNumber) {
-                showAlert("Kokokoko");
+                window.location.href = 'operations';
             } else if (response.isBlockedCard) {
                 showAlert("Card is blocked.");
             } else {

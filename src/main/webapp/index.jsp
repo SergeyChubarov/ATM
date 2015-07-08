@@ -21,14 +21,19 @@
             <div class="form-inline" id="card-number-block">
                 <h3 style="width: 155px;"><label for="card-number">Card number</label></h3>
                 <input type="text" id="card-number" class="form-control card-data-input" placeholder="CARD NUMBER">
-                <button class="btn btn-primary submit-card">OK</button>
+                <div class="form-horizontal card-main-btns" style="left: 115px;">
+                    <button class="btn btn-primary submit-card">OK</button>
+                    <button class="btn btn-default clear-card-number">Clear</button>
+                </div>
             </div>
             <div class="form-inline" id="pin-number-block">
                 <h3 style="width: 155px;"><label for="pin-number">Pin number</label></h3>
                 <input type="password" id="pin-number" class="form-control card-data-input" placeholder="PIN">
-                <button class="btn btn-primary submit-pin">OK</button>
+                <div class="form-horizontal card-main-btns">
+                    <button class="btn btn-primary submit-pin">OK</button>
+                    <button class="btn btn-default clear-pin-number">Clear</button>
+                </div>
             </div>
-            <button class="btn btn-default clear">Clear</button>
         </div>
 
         <div>

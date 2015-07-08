@@ -29,25 +29,15 @@
     right: 200px;
 }
 
-.submit-card {
-    position: relative;
-    bottom: 45px;
-    left: 400px;
-}
-
 #pin-number {
     width: 60px;
     right: 260px;
 }
 
-.submit-pin {
+.card-main-btns {
+    float: right;
     position: relative;
     bottom: 45px;
-    left: 400px;
-}
-
-.clear {
-    position: relative; bottom: 79px; left: 460px;
 }
 
 .numbers {

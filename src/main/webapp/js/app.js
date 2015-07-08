@@ -17,9 +17,12 @@ var addHandlers = function () {
         $chosenInput.val(currentNumber + chosenNumber);
     });
 
-    // clear button
-    $('.clear').on('click', function () {
-        clearInputs();
+    // clear buttons
+    $('.clear-card-number').on('click', function () {
+        $('#card-number').val("");
+    });
+    $('.clear-pin-number').on('click', function () {
+        $('#pin-number').val("");
     });
 
     // submit card button
@@ -31,11 +34,6 @@ var addHandlers = function () {
     $('.submit-pin').on('click', function () {
         checkPinNumber();
     });
-};
-
-var clearInputs = function () {
-    $('#card-number').val("");
-    $('#pin-number').val("");
 };
 
 var checkCardStatus = function () {

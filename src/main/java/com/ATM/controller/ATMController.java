@@ -38,6 +38,11 @@ public class ATMController {
         return cardService.isValidPinNumber(cardNumber, pinNumber);
     }
 
+    @RequestMapping(value = "/operations", method = RequestMethod.GET)
+    public String checkPinNumber() {
+        return "operations";
+    }
+
     private Boolean isValidCardNumber(String cardNumber) {
         return !(cardNumber.length() < 16);
     }

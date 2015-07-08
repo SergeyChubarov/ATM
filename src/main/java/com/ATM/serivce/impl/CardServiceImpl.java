@@ -2,6 +2,7 @@ package com.ATM.serivce.impl;
 
 import com.ATM.dao.CardDao;
 import com.ATM.domain.Card;
+import com.ATM.domain.Operation;
 import com.ATM.model.PinNumberDetailsModel;
 import com.ATM.serivce.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +51,13 @@ public class CardServiceImpl implements CardService {
             model.invalidAttemptsCount = invalidPinAttemptsCount;
         }
         return model;
+    }
+
+    public Card getCard(String cardNumber) {
+        return cardDao.getByNumber(cardNumber);
+    }
+
+    public void saveBalanceOperation(String cardNumber, String operationCode) {
+
     }
 }

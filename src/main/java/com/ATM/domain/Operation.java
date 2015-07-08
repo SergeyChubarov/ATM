@@ -1,7 +1,5 @@
 package com.ATM.domain;
 
-import com.ATM.utils.OperationCode;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -11,14 +9,14 @@ import java.util.Date;
 public class Operation {
     private Long id;
     private Date date;
-    private OperationCode code;
+    private String code;
     private BigDecimal amountWithdrawn;
     private Card card;
 
     public Operation() {
     }
 
-    public Operation(Long id, Date date, OperationCode operationCode, BigDecimal amountWithdrawn, Card card) {
+    public Operation(Long id, Date date, String operationCode, BigDecimal amountWithdrawn, Card card) {
         this.id = id;
         this.date = date;
         this.code = operationCode;
@@ -47,11 +45,11 @@ public class Operation {
     }
 
     @Column(name = "CODE")
-    public OperationCode getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(OperationCode code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
@@ -77,18 +75,17 @@ public class Operation {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Operation)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Operation operation = (Operation) o;
 
+        if (id != null ? !id.equals(operation.id) : operation.id != null) return false;
+        if (date != null ? !date.equals(operation.date) : operation.date != null) return false;
+        if (code != null ? !code.equals(operation.code) : operation.code != null) return false;
         if (amountWithdrawn != null ? !amountWithdrawn.equals(operation.amountWithdrawn) : operation.amountWithdrawn != null)
             return false;
-        if (card != null ? !card.equals(operation.card) : operation.card != null) return false;
-        if (code != operation.code) return false;
-        if (date != null ? !date.equals(operation.date) : operation.date != null) return false;
-        if (id != null ? !id.equals(operation.id) : operation.id != null) return false;
+        return !(card != null ? !card.equals(operation.card) : operation.card != null);
 
-        return true;
     }
 
     @Override

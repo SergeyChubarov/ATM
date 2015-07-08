@@ -55,3 +55,15 @@
     right: 140px;
     width: 170px;
 }
+
+.balance-info {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.balance-back {
+    position: relative;
+    float: right;
+    bottom: 37px;
+    right: 160px;
+}

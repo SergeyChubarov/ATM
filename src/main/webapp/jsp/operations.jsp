@@ -21,7 +21,7 @@
                 <input type="text" id="card-number-holder" class="form-control card-data-input" readonly value='${cardNumber}'>
                 <div class="form-horizontal card-main-btns" style="left: 250px;">
                     <button class="btn btn-primary withdrawal">Withdrawal</button>
-                    <button class="btn btn-primary balance">Balance</button>
+                    <a href='/balance?cardNumber=${cardNumber}&operationCode="Balance"' class="btn btn-primary balance">Balance</a>
                 </div>
             </div>
         </div>

@@ -53,6 +53,7 @@ var checkCardStatus = function () {
             if (isBlocked) {
                 showAlert("Card with number " + cardNumber + " is blocked.");
             } else {
+                $('.alert').alert('close');
                 $('#card-number-block').hide();
                 $('#pin-number-block').show();
             }
@@ -81,13 +82,12 @@ var checkPinNumber = function () {
         success: function (response) {
             $('#pin-number').val("");
             if (response.isValidPinNumber) {
-                window.location.href = 'operations';
+                window.location.href = 'operations?cardNumber=' + cardNumber;
             } else if (response.isBlockedCard) {
                 showAlert("Card is blocked.");
             } else {
                 showAlert("Wrong pin number. You have " + (maxInvalidAttempts - response.invalidAttemptsCount) + " attempts. After that your card will be blocked.");
             }
-
         },
         error: function () {
             errorRequestHandler();

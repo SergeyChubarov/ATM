@@ -18,7 +18,6 @@ public class CardServiceImpl implements CardService {
     @Autowired
     CardDao cardDao;
 
-    @Override
     public Boolean isBlockedCard(String cardNumber) {
         Card card = cardDao.getByNumber(cardNumber);
         Boolean isBlocked = card.getIsBlocked();
@@ -29,7 +28,6 @@ public class CardServiceImpl implements CardService {
         return isBlocked;
     }
 
-    @Override
     public PinNumberDetailsModel isValidPinNumber(String cardNumber, String pinNumber) {
         PinNumberDetailsModel model = new PinNumberDetailsModel();
         Card card = cardDao.getByNumber(cardNumber);

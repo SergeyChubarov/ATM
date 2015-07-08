@@ -50,3 +50,8 @@
     height: 65px;
     margin-bottom: 5px;
 }
+
+#card-number-holder {
+    right: 140px;
+    width: 170px;
+}

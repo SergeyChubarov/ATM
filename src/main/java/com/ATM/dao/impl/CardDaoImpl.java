@@ -20,7 +20,6 @@ public class CardDaoImpl implements CardDao {
         return sessionFactory.getCurrentSession();
     }
 
-    @Override
     public Card getByNumber(String cardNumber) {
         Query query = getSession().createQuery("from Card where number = :cardNumber");
         List cards = query.setParameter("cardNumber", cardNumber).list();
@@ -30,13 +29,11 @@ public class CardDaoImpl implements CardDao {
         return (Card) cards.get(0);
     }
 
-    @Override
     public void blockCardByNumber(String cardNumber) {
         Query query = getSession().createQuery("update Card set isBlocked = true where number = :cardNumber");
         query.setString("cardNumber", cardNumber).executeUpdate();
     }
 
-    @Override
     public void setPinInvalidAttemptsByNumber(String cardNumber, Integer attempts) {
         Query query = getSession().createQuery("update Card set invalidPinAttemptsCount = :attempts where number = :cardNumber");
         query

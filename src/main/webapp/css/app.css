@@ -1,0 +1,61 @@
+.home-content {
+    background-color: rgba(238, 238, 238, 0);
+}
+
+.container {
+    position: relative;
+    top: 50px;
+}
+
+#alert-container {
+    position: absolute;
+    left: 50%;
+}
+
+#card-data-content {
+    width: 50%;
+    margin: 100px auto 0;
+}
+
+.card-data-input {
+    float: right;
+    position: relative;
+    bottom: 45px;
+}
+
+#card-number {
+    width: 175px;
+    right: 200px;
+}
+
+.submit-card {
+    position: relative;
+    bottom: 45px;
+    left: 400px;
+}
+
+#pin-number {
+    width: 60px;
+    right: 260px;
+}
+
+.submit-pin {
+    position: relative;
+    bottom: 45px;
+    left: 400px;
+}
+
+.clear {
+    position: relative; bottom: 79px; left: 460px;
+}
+
+.numbers {
+    width: 20%;
+    margin: 0 auto;
+}
+
+.number-btn {
+    width: 70px;
+    height: 65px;
+    margin-bottom: 5px;
+}

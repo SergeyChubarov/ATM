@@ -17,6 +17,9 @@ public class ATMController {
     @RequestMapping(value = "/card/{cardNumber}/isBlocked", method = RequestMethod.GET)
     @ResponseBody
     public Boolean checkCardState(@PathVariable("cardNumber") String cardNumber) {
+        if (!isValidCardNumber(cardNumber)) {
+            throw new RuntimeException("Invalid card number");
+        }
         return cardService.isBlockedCard(cardNumber);
     }
 
@@ -28,4 +31,8 @@ public class ATMController {
         return cardService.isValidPinNumber(cardNumber, pinNumber);
     }
 
+
+    private Boolean isValidCardNumber(String cardNumber) {
+        return !(cardNumber.length() < 16);
+    }
 }

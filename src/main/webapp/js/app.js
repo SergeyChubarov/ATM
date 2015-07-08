@@ -36,7 +36,15 @@ var clearInputs = function () {
 };
 
 var checkCardStatus = function () {
-    var cardNumber = $('#card-number').val();
+    var cardNumberValue = $('#card-number').val(),
+        cardNumber = cardNumberValue.replace(/([-_])/g, '');
+
+    // show error message if card number invalid
+    if (cardNumber.length < 16) {
+        showAlert("Invalid card number.");
+        return false;
+    }
+
     $.ajax({
         type: "get",
         url: "/card/" + 2 + "/isBlocked",

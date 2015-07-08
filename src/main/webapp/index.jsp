@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-inline" id="pin-number-block">
                     <h3 style="width: 155px;"><label for="pin-number">Pin number</label></h3>
-                    <input type="text" id="pin-number" class="form-control card-data-input" placeholder="PIN">
+                    <input type="password" id="pin-number" class="form-control card-data-input" placeholder="PIN">
                     <button class="btn btn-primary submit-pin">OK</button>
                 </div>
                 <button class="btn btn-default clear">Clear</button>

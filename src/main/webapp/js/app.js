@@ -7,7 +7,6 @@ $(document).ready(function() {
 });
 
 var addHandlers = function () {
-
     // number buttons
     $('.number-btn').on('click', function (event) {
         var isCardNumberBlockVisible = $('#card-number-block').is(':visible'),
@@ -28,6 +27,10 @@ var addHandlers = function () {
         checkCardStatus();
     });
 
+    // submit pin button
+    $('.submit-pin').on('click', function () {
+        checkPinNumber();
+    });
 };
 
 var clearInputs = function () {
@@ -47,7 +50,7 @@ var checkCardStatus = function () {
 
     $.ajax({
         type: "get",
-        url: "/card/" + 2 + "/isBlocked",
+        url: "/card/" + cardNumber + "/isBlocked",
         success: function (isBlocked) {
             if (isBlocked) {
                 showAlert("Card with number " + cardNumber + " is blocked.");
@@ -62,40 +65,44 @@ var checkCardStatus = function () {
     });
 };
 
+var checkPinNumber = function () {
+    var cardNumberValue = $('#card-number').val(),
+        cardNumber = cardNumberValue.replace(/([-_])/g, ''),
+        pinNumber = $('#pin-number').val(),
+        maxInvalidAttempts = 4;
+
+    // show error message if pin number invalid
+    if (pinNumber.length < 4) {
+        showAlert("Invalid pin number.");
+        return false;
+    }
+
+    $.ajax({
+        type: "get",
+        url: "/card/" + cardNumber + "/pin/" + pinNumber + "/checkPinNumber",
+        success: function (response) {
+            $('#pin-number').val("");
+            if (response.isValidPinNumber) {
+                showAlert("Kokokoko");
+            } else if (response.isBlockedCard) {
+                showAlert("Card is blocked.");
+            } else {
+                showAlert("Wrong pin number. You have " + (maxInvalidAttempts - response.invalidAttemptsCount) + " attempts. After that your card will be blocked.");
+            }
+
+        },
+        error: function () {
+            errorRequestHandler();
+        }
+    });
+
+};
+
 var showAlert = function (message) {
     $('#alert-container').html($("#alert-template").html());
     $('#message').text(message);
 };
 
-
-
-
-$(document).on('click', '.submit-pin', function (event) {
-    var cardNumber = $('#card-number').val();
-    var pinNumber = $('#pin-number').val();
-    $.ajax({
-        type: "get",
-        url: "/card/" + cardNumber + "/pin/" + pinNumber + "/checkPinNumber",
-        success: function (response) {
-
-            console.log("asdasd " + response);
-//            $('#card-number-block').hide();
-//            $('#pin-number-block').show();
-        }
-    });
-});
-
-
-
-//$('.clear').click(function() {
-//    $.blockUI({ css: {
-//        border: 'none',
-//        padding: '15px',
-//        backgroundColor: '#000',
-//        '-webkit-border-radius': '10px',
-//        opacity: .5,
-//        color: '#fff'
-//    } });
-//
-//    setTimeout($.unblockUI, 2000);
-//});
+var errorRequestHandler = function () {
+    showAlert("Internal server error. Please contact administrator.");
+};

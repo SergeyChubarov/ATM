@@ -1,5 +1,6 @@
 package com.ATM.controller;
 
+import com.ATM.model.PinNumberDetailsModel;
 import com.ATM.serivce.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ public class ATMController {
     @RequestMapping(value = "/card/{cardNumber}/isBlocked", method = RequestMethod.GET)
     @ResponseBody
     public Boolean checkCardState(@PathVariable("cardNumber") String cardNumber) {
+
         if (!isValidCardNumber(cardNumber)) {
             throw new RuntimeException("Invalid card number");
         }
@@ -25,14 +27,22 @@ public class ATMController {
 
     @RequestMapping(value = "/card/{cardNumber}/pin/{pinNumber}/checkPinNumber", method = RequestMethod.GET)
     @ResponseBody
-    public Boolean checkPinNumber(
+    public PinNumberDetailsModel checkPinNumber(
             @PathVariable("cardNumber") String cardNumber,
             @PathVariable("pinNumber") String pinNumber) {
+
+        if (!isValidPinNumber(pinNumber)) {
+            throw new RuntimeException("Invalid pin number");
+        }
+
         return cardService.isValidPinNumber(cardNumber, pinNumber);
     }
 
-
     private Boolean isValidCardNumber(String cardNumber) {
         return !(cardNumber.length() < 16);
+    }
+
+    private Boolean isValidPinNumber(String pinNumber) {
+        return !(pinNumber.length() < 4);
     }
 }

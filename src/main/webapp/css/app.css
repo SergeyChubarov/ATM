@@ -67,3 +67,23 @@
     bottom: 37px;
     right: 160px;
 }
+
+.withdrawal-amount-input {
+    position: relative;
+    bottom: 45px;
+    left: 250px;
+}
+
+.withdrawal-btns {
+    float: right;
+    position: relative;
+    bottom: 45px;
+    right: 100px;
+}
+
+.report-back-btn {
+    position: relative;
+    float: right;
+    bottom: 40px;
+    right: 145px;
+}

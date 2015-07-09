@@ -5,7 +5,6 @@
 <head>
     <title>ATM</title>
     <script type="text/javascript" src="<spring:url value="/js/jquery/jquery-2.1.4.js"/>"></script>
-    <script type="text/javascript" src="<spring:url value="/js/jquery/jquery.blockUI.js"/>"></script>
     <script type="text/javascript" src="<spring:url value="/js/jquery/inputmask.js"/>"></script>
     <script type="text/javascript" src="<spring:url value="/js/jquery/jquery.inputmask.js"/>"></script>
     <script type="text/javascript" src="<spring:url value="/js/bootstrap/bootstrap.js"/>"></script>
@@ -20,7 +19,7 @@
         <div id="card-data-content">
             <div class="form-inline" id="card-number-block">
                 <h3 style="width: 155px;"><label for="card-number">Card number</label></h3>
-                <input type="text" id="card-number" class="form-control card-data-input" placeholder="CARD NUMBER">
+                <input type="text" id="card-number" class="form-control card-data-input" placeholder="CARD NUMBER" readonly>
                 <div class="form-horizontal card-main-btns" style="left: 115px;">
                     <button class="btn btn-primary submit-card">OK</button>
                     <button class="btn btn-default clear-card-number">Clear</button>
@@ -28,7 +27,7 @@
             </div>
             <div class="form-inline" id="pin-number-block">
                 <h3 style="width: 155px;"><label for="pin-number">Pin number</label></h3>
-                <input type="password" id="pin-number" class="form-control card-data-input" placeholder="PIN">
+                <input type="password" id="pin-number" class="form-control card-data-input" placeholder="PIN" readonly>
                 <div class="form-horizontal card-main-btns">
                     <button class="btn btn-primary submit-pin">OK</button>
                     <button class="btn btn-default clear-pin-number">Clear</button>
@@ -36,20 +35,7 @@
             </div>
         </div>
 
-        <div>
-            <div class="numbers">
-                <button class="btn btn-default number-btn">1</button>
-                <button class="btn btn-default number-btn">2</button>
-                <button class="btn btn-default number-btn">3</button>
-                <button class="btn btn-default number-btn">4</button>
-                <button class="btn btn-default number-btn">5</button>
-                <button class="btn btn-default number-btn">6</button>
-                <button class="btn btn-default number-btn">7</button>
-                <button class="btn btn-default number-btn">8</button>
-                <button class="btn btn-default number-btn">9</button>
-                <button class="btn btn-default number-btn" style="margin-left: 74px;">0</button>
-            </div>
-        </div>
+        <jsp:include page="jsp/numbers.jsp"/>
     </div>
 </body>
 </html>

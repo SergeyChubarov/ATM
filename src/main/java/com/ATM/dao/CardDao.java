@@ -9,4 +9,6 @@ public interface CardDao {
     void blockCardByNumber(String cardNumber);
 
     void setPinInvalidAttemptsByNumber(String cardNumber, Integer attempts);
+
+    void save(Card card);
 }

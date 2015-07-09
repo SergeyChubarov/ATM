@@ -41,4 +41,8 @@ public class CardDaoImpl implements CardDao {
                 .setInteger("attempts", attempts)
                 .executeUpdate();
     }
+
+    public void save(Card card) {
+        getSession().saveOrUpdate(card);
+    }
 }

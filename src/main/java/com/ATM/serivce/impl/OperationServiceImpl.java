@@ -27,4 +27,9 @@ public class OperationServiceImpl implements OperationService {
         operation.setDate(new Date());
         operationDao.save(operation);
     }
+
+    public void saveWithdrawOperation(Operation operation) {
+        operation.setDate(new Date());
+        operationDao.save(operation);
+    }
 }

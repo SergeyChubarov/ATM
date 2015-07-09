@@ -20,7 +20,7 @@
                 <h3 style="width: 400px;"><label for="card-number-holder">Operations for card</label></h3>
                 <input type="text" id="card-number-holder" class="form-control card-data-input" readonly value='${cardNumber}'>
                 <div class="form-horizontal card-main-btns" style="left: 250px;">
-                    <button class="btn btn-primary withdrawal">Withdrawal</button>
+                    <a href='/withdrawal?cardNumber=${cardNumber}' class="btn btn-primary withdrawal">Withdrawal</a>
                     <a href='/balance?cardNumber=${cardNumber}&operationCode="Balance"' class="btn btn-primary balance">Balance</a>
                 </div>
             </div>

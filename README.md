@@ -1,5 +1,8 @@
 # ATM
 
+Demo: http://atm-app.unicloud.pl/ 
+(test data http://i.piccy.info/i9/0bdd2076da92a081d7e4fd5568db1b47/1436455705/15347/928160/TestData_Capture.png)
+
 ScreenShots:
 - http://i.piccy.info/i9/68e90772a139722303775c622e8c5636/1436420775/27806/927959/1.png
 - http://i.piccy.info/i9/bee778a77b7a984e22fb6255db50dbef/1436420805/24736/927959/2.png
@@ -18,3 +21,21 @@ Technologies used:
 - JavaScript
 - jQuery
 - Bootstrap
+ 
+To run application you need to add MySQL database configuration in file jdbc.properties
+
+To create database and tables you can use this queries:
+CREATE DATABASE `DATABASE_NAME` CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `DATABASE_NAME`;
+
+CREATE USER 'USERNAME'@'localhost' IDENTIFIED BY 'PASSWD';
+CREATE USER 'USERNAME'@'%' IDENTIFIED BY 'PASSWD';
+GRANT ALL ON `DATABASE_NAME`.* TO 'USERNAME'@'localhost';
+GRANT ALL ON `DATABASE_NAME`.* TO 'USERNAME'@'%';
+
+In datasource-context.xml set in property hibernate.hbm2ddl.auto value "create" and hibernate creates tables in accordance with the entities after application start.
+
+To add some test data use this query:
+INSERT INTO `CARD`(`NUMBER`, `BALANCE`, `INVALID_PIN_ATTEMPTS_COUNT`, `IS_BLOCKED`, `PIN_NUMBER`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5])
+
+INSERT INTO `OPERATION`(`id`, `AMOUNT_WITHDRAWN`, `CODE`, `DATE`, `NUMBER`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5])

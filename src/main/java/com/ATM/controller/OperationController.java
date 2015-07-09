@@ -1,7 +1,5 @@
 package com.ATM.controller;
 
-import com.ATM.domain.Card;
-import com.ATM.domain.Operation;
 import com.ATM.model.WithdrawDetailsModel;
 import com.ATM.serivce.CardService;
 import com.ATM.serivce.OperationService;
@@ -9,7 +7,6 @@ import com.ATM.utils.ControllerValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;

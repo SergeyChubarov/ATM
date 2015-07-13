@@ -21,6 +21,10 @@ Technologies used:
 - JavaScript
 - jQuery
 - Bootstrap
+
+
+What can be improved:
+- Add using of Spring Security and encryption of pin code when it transferring between server and ui side
  
 To run application you need to add MySQL database configuration in file jdbc.properties
 
